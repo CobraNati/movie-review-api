@@ -5,12 +5,8 @@ const PORT = 3000;
 const DATA_FILE = './movies.json';
 
 const readData = () => {
-    try {
-        const data = fs.readFileSync(DATA_FILE, 'utf8');
-        return JSON.parse(data || '[]');
-    } catch (err) {
-        return [];
-    }
+    const data = fs.readFileSync(DATA_FILE, 'utf8');
+    return JSON.parse(data || '[]');
 };
 
 const writeData = (data) => {
@@ -23,6 +19,12 @@ const server = http.createServer((req, res) => {
     const id = urlParts[2];
 
     res.setHeader('Content-Type', 'application/json');
+
+    if (url === '/' && method === 'GET') {
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('the server is running');
+        return;
+    }
 
     if (method === 'GET') {
         const movies = readData();
@@ -89,5 +91,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`server is running at localhost:${PORT}`);
 });

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "rating": 9,
+    "review": "Mind-bending masterpiece."
+  },
+  {
+    "id": 2,
+    "title": "The Matrix",
+    "director": "Lana Wachowski",
+    "rating": 10,
+    "review": "A classic of sci-fi cinema."
+  }
+]
